@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="NiTiS.VE.NVE">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NVE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NiTiS.VE.NVEType">
+    <Position X="1.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>wAAAAAAEAACAAAAlAAAQQAQAIAAAAAAAARIAAAAAEEg=</HashCode>
+      <FileName>NVEType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NiTiS.VE.Instance">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAEAAAAAAAAEAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Instance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NiTiS.VE.NVEMethod">
+    <Position X="7.75" Y="3" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NVEMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="NiTiS.VE.Method">
+    <Position X="13" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Method.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Cascadia Code" Size="10" />
+</ClassDiagram>
