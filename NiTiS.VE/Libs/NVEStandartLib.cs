@@ -7,7 +7,7 @@ public static class NVEStandartLib
 		PackageBuilder builder = new PackageBuilder("NVEBasicPackage").WithVersion(new Version(0, 0, 0, 1));
 
 		ClassBuilder objectBuilder = builder.CreateClassBuilder("NVE.Object").WithAlias("object");
-		objectBuilder.WithMethod(new());
+		objectBuilder.WithMethod(new("getType"));
 		objectBuilder.Build(builder);
 
 		ClassBuilder booleanBuilder = builder.CreateClassBuilder("NVE.Boolean").WithAlias("boolean");

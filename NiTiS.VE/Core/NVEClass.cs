@@ -1,11 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace NiTiS.VE.Core;
 
 public class NVEClass : NVEMemberAlocation
 {
+	private List<NVEMethod> methods = new();
+	private readonly List<NVEClass> extends = new();
+	private readonly List<NVEInterface> realize = new();
+	public NVEMethod? GetMethod(string name, params NVEType[] arguments)
+	{
+		return GetMethods().Where(m => m.Name == name).Where(m => m.Arguments == arguments).FirstOrDefault();
+	}
+	public IEnumerable<NVEMethod> GetMethods()
+	{
+		foreach(NVEMethod method in methods)
+		{
+			yield return method;
+		}
+		foreach (NVEClass @class in extends)
+		{
+			foreach (NVEMethod method in @class.GetMethods())
+			{
+				yield return method;
+			}
+		}
+		
+	}
 	public NVEClass(PackageReference reference, string name) : base(reference, name)
 	{
 	}
