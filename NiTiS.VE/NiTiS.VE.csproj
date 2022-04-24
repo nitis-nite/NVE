@@ -3,10 +3,12 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<LangVersion>latest</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup Label="Imports">
-		<PackageReference Include="NiTiSCore" Version="2.*" />
+		<PackageReference Include="NiTiSCore" Version="2.0.7" />
 	</ItemGroup>
 	
 </Project>

@@ -1,4 +1,6 @@
-﻿public static class Hide
+﻿using System.Diagnostics;
+
+public static class Hide
 {
 	public static void PrintLine(this object obj)
 	{
