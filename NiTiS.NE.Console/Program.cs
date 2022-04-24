@@ -10,7 +10,7 @@ namespace NiTiS.NE.Console
 			NVE nve = new();
 			NVEClass type = nve.GetClassByAlias("type");
 			NVEInstance typeInst = new(type);
-			type.GetMethod("getType", );
+			NVEInstance typeInst2 = type.GetMethod("getType").Invoke(typeInst);
 			nve.RunCode("NVE.Main::main", args);
 		}
 	}

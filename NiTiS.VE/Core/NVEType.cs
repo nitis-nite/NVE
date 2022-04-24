@@ -6,6 +6,7 @@ namespace NiTiS.VE.Core;
 
 public class NVEType
 {
+	public static readonly NVEType RELEATIVE_TYPE = new(new(0), "!ReleativeType");
 	private readonly PackageReference reference;
 	private readonly string name;
 	public NVEType(PackageReference package, string name)

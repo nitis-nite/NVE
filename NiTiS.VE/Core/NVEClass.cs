@@ -88,12 +88,13 @@ public class NVEClass : NVEMemberAlocation
 			{
 			};
 		}
-		public PackageBuilder Build(PackageBuilder builder)
+		public NVEClass Build(PackageBuilder builder)
 		{
 			NVEClass @class = new NVEClass(reference, className, alias)
 			{
 			};
-			return builder.WithClass(@class);
+			builder.WithClass(@class);
+			return @class;
 		}
 		public PackageReference GetPackageReference() => reference;
 	}

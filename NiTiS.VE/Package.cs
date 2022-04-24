@@ -65,11 +65,15 @@ public class Package
 	public class PackageReference : IEquatable<PackageReference>, IEquatable<Package>
 	{
 		private static uint pckID = 0;
-		private readonly uint packageID = pckID++;
+		private readonly uint packageID;
 		public uint ID => packageID;
 		internal PackageReference()
 		{
-
+			packageID = pckID++;
+		}
+		internal PackageReference(uint id)
+		{
+			packageID = id;
 		}
 		public override int GetHashCode() => (int)(packageID -3215847);
 		public bool Equals([AllowNull] PackageReference other)

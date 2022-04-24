@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NiTiS.VE.Core.Exec;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace NiTiS.VE.Core;
@@ -7,10 +8,16 @@ public class NVEMethod : NVEMember, IEquatable<NVEMethod>
 {
 	private NVEType @out;
 	private NVEType[] @in;
-	public NVEMethod(string name, NVEType outType, params NVEType[] argumetns) : base(name)
+	private Execute exec;
+	public NVEMethod(string name, Execute exec, NVEType outType, params NVEType[] argumetns) : base(name)
 	{
+		this.exec = exec;
 		this.@out = outType;
 		this.@in = argumetns;
+	}
+	public NVEInstance? Invoke(NVEInstance? instance, params NVEInstance[] arguments)
+	{
+		return exec.Invoke(instance, arguments);
 	}
 	public NVEType OutParameter => @out;
 	public NVEType[] Arguments => @in;

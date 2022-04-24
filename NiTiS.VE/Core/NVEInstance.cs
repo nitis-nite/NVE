@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace NiTiS.VE.Core;
 
@@ -12,5 +10,23 @@ public class NVEInstance
 	{
 		this.@typeof = @typeof;
 	}
+	public NVEInstance(byte[] rawData)
+	{
+		this._data = rawData;
+		this.@typeof = NVEType.RELEATIVE_TYPE;
+	}
 
+	public NVEInstance GetVariable(string name)
+	{
+		return localVariables[name];
+	}
+	public byte[] GetRawData()
+	{
+		return _data;
+	}
+
+	/// <summary>
+	/// Required for realization basic types
+	/// </summary>
+	private readonly byte[] _data;
 }
