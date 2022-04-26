@@ -9,7 +9,7 @@ public class Execute
 	public Execute()
 	{
 	}
-	public NVEInstance? Invoke(NVEInstance? instance, params NVEInstance[] arguments)
+	public NVEInstanceOLD? Invoke(NVEInstanceOLD? instance, params NVEInstanceOLD[] arguments)
 	{
 		Console.WriteLine($"Try to invoke from {instance?.ToString()}");
 		return null;

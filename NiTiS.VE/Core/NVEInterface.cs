@@ -4,6 +4,7 @@ using System.Text;
 
 namespace NiTiS.VE.Core;
 
+[Obsolete]
 public class NVEInterface
 {
 	public class Builder

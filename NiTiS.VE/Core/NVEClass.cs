@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NiTiS.VE.Core.Runtime;
 
 namespace NiTiS.VE.Core;
 
@@ -29,6 +30,7 @@ public class NVEClass : NVEMemberAlocation
 		}
 		
 	}
+	public virtual NVEInstance CreateInstance() => new(this);
 	public NVEClass(PackageReference reference, string name) : base(reference, name)
 	{
 	}
@@ -38,12 +40,12 @@ public class NVEClass : NVEMemberAlocation
 
 	public class Builder
 	{
-		private string className;
-		private string? alias;
-		private readonly PackageReference reference;
-		private readonly List<NVEClass> extends = new();
-		private readonly List<NVEInterface> realize = new();
-		private readonly List<NVEMethod> methods = new();
+		protected string className;
+		protected string? alias;
+		protected readonly PackageReference reference;
+		protected readonly List<NVEClass> extends = new();
+		protected readonly List<NVEInterface> realize = new();
+		protected readonly List<NVEMethod> methods = new();
 		public Builder(PackageReference reference, string className)
 		{
 			this.reference = reference;
@@ -82,17 +84,15 @@ public class NVEClass : NVEMemberAlocation
 		{
 			return this;
 		}
-		public NVEClass Build()
+		public virtual NVEClass Build()
 		{
-			return new NVEClass(reference, className)
+			return new NVEClass(reference, className, alias)
 			{
 			};
 		}
 		public NVEClass Build(PackageBuilder builder)
 		{
-			NVEClass @class = new NVEClass(reference, className, alias)
-			{
-			};
+			NVEClass @class = Build();
 			builder.WithClass(@class);
 			return @class;
 		}

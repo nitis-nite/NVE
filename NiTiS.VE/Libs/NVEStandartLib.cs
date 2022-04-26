@@ -1,4 +1,5 @@
 ﻿using NiTiS.VE.Core;
+using System;
 
 namespace NiTiS.VE.Libs;
 
@@ -10,6 +11,8 @@ public static class NVEStandartLib
 
 		ClassBuilder objectBuilder = builder.CreateClassBuilder("NVE.Object").WithAlias("object");
 		NVEClass objectClass = objectBuilder.Build(builder);
+
+		
 
 		ClassBuilder booleanBuilder = builder.CreateClassBuilder("NVE.Boolean").WithAlias("boolean");
 		booleanBuilder.ExtendClass(objectClass);

@@ -15,7 +15,7 @@ public class NVEMethod : NVEMember, IEquatable<NVEMethod>
 		this.@out = outType;
 		this.@in = argumetns;
 	}
-	public NVEInstance? Invoke(NVEInstance? instance, params NVEInstance[] arguments)
+	public NVEInstanceOLD? Invoke(NVEInstanceOLD? instance, params NVEInstanceOLD[] arguments)
 	{
 		return exec.Invoke(instance, arguments);
 	}
