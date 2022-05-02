@@ -1,9 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<LangVersion>10</LangVersion>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>0.0.4</Version>
+		<VersionSuffix>active-testing</VersionSuffix>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,7 +15,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Services\Build\" />
-	  <Folder Include="Services\Runtime\" />
 	</ItemGroup>
 
 </Project>
