@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiTiS.VE", "NiTiS.VE\NiTiS.VE.csproj", "{91C3F120-2F1C-4261-90FE-A67DF850AA39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiTiS.VE", "NiTiS.VE\NiTiS.VE.csproj", "{91C3F120-2F1C-4261-90FE-A67DF850AA39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiTiS.NE.Console", "NiTiS.NE.Console\NiTiS.NE.Console.csproj", "{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiTiS.NE.Console", "NiTiS.NE.Console\NiTiS.NE.Console.csproj", "{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiteCode", "NiteCode\NiteCode.csproj", "{FD3B4654-A4A2-49BB-A4C5-3D465EA946F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD3B4654-A4A2-49BB-A4C5-3D465EA946F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3B4654-A4A2-49BB-A4C5-3D465EA946F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3B4654-A4A2-49BB-A4C5-3D465EA946F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3B4654-A4A2-49BB-A4C5-3D465EA946F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

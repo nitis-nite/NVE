@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿global using SC = System.Console;
+using System.Diagnostics;
 
 public static class Hide
 {

@@ -1,17 +1,18 @@
 ﻿using NiTiS.VE;
-using NiTiS.VE.Core;
-using NiTiS.VE.Core.Runtime;
+using System;
+using System.Runtime.InteropServices;
 
 namespace NiTiS.NE.Console
 {
-	internal class Program
+	public static unsafe class Program
 	{
 		static void Main(string[] args)
 		{
-			NVE nve = new();
-			NVEClass type = nve.GetClassByAlias("type");
-			NVEInstance typeInst = type.CreateInstance();
-			nve.RunCode("NVE.Main::main", args);
+			Scaner scaner = new(System.Console.In);
+			while(true)
+			{
+				scaner.Scan();
+			}
 		}
 	}
 }
