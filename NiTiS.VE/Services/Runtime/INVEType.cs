@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NiTiS.VE;
+namespace NiTiS.VE.Services.Runtime;
 
-public static unsafe class NVE
+public interface INVEType
 {
-
 }
