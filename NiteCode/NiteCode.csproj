@@ -15,6 +15,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Services\Build\" />
+	  <Folder Include="Services\Runtime\" />
 	</ItemGroup>
 
 </Project>
