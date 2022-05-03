@@ -1,6 +1,4 @@
-﻿using NiTiS.VE;
-using NiTiS.VE.Core;
-using NiTiS.VE.Core.Runtime;
+﻿using NiteCode;
 
 namespace NiTiS.NE.Console
 {
@@ -9,9 +7,7 @@ namespace NiTiS.NE.Console
 		static void Main(string[] args)
 		{
 			NVE nve = new();
-			NVEClass type = nve.GetClassByAlias("type");
-			NVEInstance typeInst = type.CreateInstance();
-			nve.RunCode("NVE.Main::main", args);
+
 		}
 	}
 }
