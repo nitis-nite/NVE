@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NiteCode.Services.Runtime;
+namespace NiTiS.VE.Services.Runtime;
 
 [DebuggerDisplay($"{{{nameof(ToString)}(),nq}}")]
 public sealed class Reference<T> : IEquatable<Reference<T>>, IEquatable<T> where T : IReferenceable<T>

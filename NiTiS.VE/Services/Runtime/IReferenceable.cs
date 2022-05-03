@@ -4,6 +4,7 @@ using System.Text;
 
 namespace NiTiS.VE.Services.Runtime;
 
-public interface INVEType
+public interface IReferenceable<T> where T : IReferenceable<T>
 {
+	public Reference<T> Reference { get; }
 }

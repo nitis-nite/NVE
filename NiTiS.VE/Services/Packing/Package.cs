@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NiTiS.VE.Services.Runtime;
 
-namespace NiteCode.Services.Runtime;
+namespace NiTiS.VE.Services.Packing;
 
 public class Package : IReferenceable<Package>
 {
@@ -13,5 +11,6 @@ public class Package : IReferenceable<Package>
 	{
 		this.name = name;
 	}
-
+	public override string ToString()
+		=> $"{name} 1.0.0.0";
 }

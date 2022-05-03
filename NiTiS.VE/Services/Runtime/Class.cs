@@ -1,12 +1,13 @@
-﻿using System;
+﻿using NiTiS.VE.Services.Packing;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NiteCode.Services.Runtime;
+namespace NiTiS.VE.Services.Runtime;
 
 public class Class : Type
 {
-	private List<Class> dependensClasses = new(2);
+	private Class[]? dependensClasses;
 
 	public Class(string @namespace, string name, Reference<Package> package) : base(@namespace, name, package)
 	{
@@ -42,7 +43,7 @@ public class Class : Type
 		{
 			return new Class(@namespace, name, reference!)
 			{
-				dependensClasses = this.dependensClasses,
+				dependensClasses = this.dependensClasses.ToArray(),
 			};
 		}
 		public Class Build(NVE nve)

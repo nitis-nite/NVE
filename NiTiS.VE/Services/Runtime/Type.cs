@@ -1,6 +1,7 @@
-﻿using NiTiS.VE.Services.Runtime;
+﻿using NiTiS.VE.Services.Packing;
+using NiTiS.VE.Services.Runtime;
 
-namespace NiteCode.Services.Runtime;
+namespace NiTiS.VE.Services.Runtime;
 
 public class Type : IVEType, IReferenceable<Type>
 {
@@ -13,7 +14,7 @@ public class Type : IVEType, IReferenceable<Type>
 	public string Name => name;
 	public string FullName => HasNamespace ? @namespace + "." + name : name;
 
-
+	public override string ToString() => FullName;
 	protected Type(string @namespace, string name, Reference<Package> package)
 	{
 		this.@namespace = @namespace!;

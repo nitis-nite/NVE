@@ -11,8 +11,8 @@
 	  <None Include="..\.editorconfig" Link=".editorconfig" />
 	</ItemGroup>
 
-	<ItemGroup Label="Imports">
-		<PackageReference Include="NiTiSCore" Version="2.0.7" />
+	<ItemGroup>
+	  <PackageReference Include="NiTiSCore" Version="2.0.8.6" />
 	</ItemGroup>
 	
 </Project>
