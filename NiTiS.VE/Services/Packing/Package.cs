@@ -1,16 +1,24 @@
-﻿using NiTiS.VE.Services.Runtime;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace NiTiS.VE.Services.Packing;
 
-public class Package : IReferenceable<Package>
+public class Package
 {
-	private Reference<Package> reference = new();
-	public Reference<Package> Reference => reference;
-	protected string name;
-	public Package(string name)
+
+	public class Builder
 	{
-		this.name = name;
+		private string packageName;
+		private Version version;
+		public Builder(string packageName)
+		{
+			this.packageName = packageName;
+		}
+		public Builder WithVersion(Version version)
+		{
+			this.version = version;
+			return this;
+		}
 	}
-	public override string ToString()
-		=> $"{name} 1.0.0.0";
 }

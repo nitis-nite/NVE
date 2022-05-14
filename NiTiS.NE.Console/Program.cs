@@ -1,37 +1,19 @@
 ﻿using NiTiS.VE;
+using NiTiS.VE.Services;
 using NiTiS.VE.Services.Packing;
 using NiTiS.VE.Services.Runtime;
-using NiTiS.VE.Services.Runtime.Exec;
+using NiTiS.VE.Services.Runtime.MM;
+using System.Reflection.Emit;
 
 namespace NiTiS.NE.Console;
 
-internal class Program
+public unsafe class Program
 {
-	static void Main(string[] args)
+	public static void Main(string[] args)
 	{
-		NVE nve = new();
+		Type type = new("NVE", "Abc");
 
-		Instance newObj = nve.CreateInstance(NVE.Byte);
-		newObj.PrintLine();
-		newObj.Add(1);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
-		newObj.Add(newObj);
-		newObj.PrintLine();
+		Package.Builder pckBuilder = new Package.Builder("NVE");
+		pckBuilder.WithVersion(new (0, 0, 0, 1));
 	}
 }

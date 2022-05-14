@@ -1,30 +1,46 @@
-﻿using System;
+﻿using NiTiS.Collections.Generic;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace NiTiS.VE.Services.Runtime;
 
-[DebuggerDisplay($"{{{nameof(ToString)}(),nq}}")]
-public sealed class Reference<T> : IEquatable<Reference<T>>, IEquatable<T> where T : IReferenceable<T>
+public readonly struct Reference<T> : IEquatable<Reference<T>>, IEquatable<T> where T : IReferenceable<T>
 {
-	private static ulong maxID = 0;
-	private ulong id = maxID++;
-	public ulong LongID => this.id;
-	public Reference() { }
-	public bool Equals(T? other)
-		=> other?.Reference.id == this.id;
-	public bool Equals(Reference<T>? other)
-		=> other?.id == this.id;
+	private static readonly Sequence<T> sequence = new(32); 
+	public readonly ulong ID;
+	public Reference()
+	{
+		ID = 0;
+	}
+	internal Reference(T item)
+	{
+		sequence.Add(item);
+		ID = sequence.Length;
+	}
+	public T LinkedItem => sequence[ID];
 	public override bool Equals(object? obj)
-		=> obj is T it ? Equals(it) : obj is Reference<T> rf ? Equals(rf) : false;
-	public override int GetHashCode() => HashCode.Combine(this.id);
+	{
+		if (obj is Reference<T> reference) { return Equals(reference); }
+		if (obj is T item) { return Equals(item); }
+		if (obj is ulong lng) { return Equals(lng); }
+		return false;
+	}
+	public bool Equals(ulong id)
+		=> this.ID + id != 0 && this.ID == id;
+	public bool Equals(T? item)
+		=> this.Equals(item?.Reference.ID ?? 0);
+	public bool Equals(Reference<T> reference)
+		=> this.Equals(reference.ID);
+	public override int GetHashCode() => HashCode.Combine(this.ID);
 
-	public static bool operator ==(Reference<T>? left, Reference<T>? right)
-		=> left?.Equals(right) ?? false;
-
-	public static bool operator !=(Reference<T>? left, Reference<T>? right)
+	public static bool operator ==(Reference<T> left, Reference<T> right)
+		=> left.Equals(right);
+	public static bool operator ==(Reference<T> left, T right)
+		=> left.Equals(right);
+	public static bool operator !=(Reference<T> left, Reference<T> right) 
 		=> !(left == right);
-
-	public override string ToString() => $"Reference<{typeof(T).Name}> ({this.id})";
+	public static bool operator !=(Reference<T> left, T right)
+		=> !(left == right);
 }

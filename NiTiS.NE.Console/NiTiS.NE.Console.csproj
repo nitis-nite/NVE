@@ -11,8 +11,4 @@
 		<ProjectReference Include="../NiTiS.VE/*.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\NiteCode\NiteCode.csproj" />
-	</ItemGroup>
-
 </Project>
