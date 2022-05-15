@@ -6,7 +6,7 @@ using System.Text;
 namespace NiTiS.VE.Services.Runtime;
 
 [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
-public class Type : IEquatable<Type?>, IEquatable<Reference<Type>>, IReferenceable<Type>
+public partial class Type : IEquatable<Type?>, IEquatable<Reference<Type>>, IReferenceable<Type>
 {
 	private string name, space;
 	private string Name => name;

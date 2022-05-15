@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiTiS.VE", "NiTiS.VE\NiTiS.VE.csproj", "{91C3F120-2F1C-4261-90FE-A67DF850AA39}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiTiS.NE.Console", "NiTiS.NE.Console\NiTiS.NE.Console.csproj", "{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiTiS.VE.Console", "NiTiS.VE.Console\NiTiS.VE.Console.csproj", "{1B897DF4-A110-4FD7-ADD7-0E26CA2F22C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CAC9F769-9903-4324-9DF3-3065A96F65F1}"
 	ProjectSection(SolutionItems) = preProject
