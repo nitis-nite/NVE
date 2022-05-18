@@ -43,4 +43,5 @@ public readonly struct Reference<T> : IEquatable<Reference<T>>, IEquatable<T> wh
 		=> !(left == right);
 	public static bool operator !=(Reference<T> left, T right)
 		=> !(left == right);
+	public static Reference<T> Zero { get; } = new Reference<T>();
 }
