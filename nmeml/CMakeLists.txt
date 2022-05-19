@@ -4,8 +4,8 @@ project ("nmeml" CXX)
 
 add_library (nmeml SHARED "nmeml.cpp" "nmeml.h")
 
-target_link_libraries (nmeml)
+target_compile_options (nmeml PRIVATE -Wall)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET nmeml PROPERTY CXX_STANDARD 20)
+  set_property (TARGET nmeml PROPERTY CXX_STANDARD 20)
 endif()
