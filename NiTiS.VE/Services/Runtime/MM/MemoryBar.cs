@@ -7,6 +7,7 @@ using System.Text;
 namespace NiTiS.VE.Services.Runtime.MM;
 
 [DebuggerDisplay($"{{{nameof(ToString)}(),nq}}")]
+[Obsolete]
 public unsafe class MemoryBar : IEquatable<MemoryBar>
 {
 	private static uint lastID = 0;

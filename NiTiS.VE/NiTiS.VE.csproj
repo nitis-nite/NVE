@@ -14,5 +14,11 @@
 	<ItemGroup>
 	  <PackageReference Include="NiTiSCore" Version="2.0.9.7" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="*.dll" CopyToOutputDirectory="Always">
+			<IncludeInPackage>true</IncludeInPackage>
+		</Content>
+	</ItemGroup>
 	
 </Project>

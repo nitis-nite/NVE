@@ -6,6 +6,7 @@ using System;
 using NiTiS.Collections.Pseudo;
 using System.Threading.Tasks;
 using static NiTiS.VE.Services.Runtime.MM.MemoryGentleman;
+using static NiTiS.VE.Services.Runtime.MM.NMem;
 
 namespace NiTiS.VE.Console;
 
@@ -14,7 +15,14 @@ public unsafe class Program
 	public static void Main(string[] args)
 	{
 		MemoryBar bar = BarAllocate(1);
+		byte* ptr = _alloc32B();
+		*ptr = 0;
+		SC.WriteLine((ulong)ptr);
+		SC.WriteLine(*ptr);
+		_unlock32B(ptr);
 
+		SC.WriteLine((ulong)ptr);
+		SC.WriteLine(*ptr);
 		GC.GetTotalAllocatedBytes().PrintLine();
 		Fu();
 		GC.Collect();
