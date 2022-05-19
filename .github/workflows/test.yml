@@ -13,10 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Install DotNet v5
+    - name: Install DotNet v6
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.x'
+        dotnet-version: '6.x'
         
     - name: Run
       run: |
@@ -26,11 +26,6 @@ jobs:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Install DotNet v5
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.x'
         
     - name: Run
       run: |
