@@ -29,7 +29,7 @@ jobs:
     - name: Artifact Pack 
       uses: actions/upload-artifact@v2
       with:
-        path: lib*.so
+        path: '**/lib*.so'
         
   WindowsRun:
     runs-on: windows-2019
