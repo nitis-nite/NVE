@@ -16,7 +16,7 @@ public static unsafe class NMem
 	}
 	private class Linux
 	{
-		public const string NiTiSMemoryLibName = "nmeml.dll";
+		public const string NiTiSMemoryLibName = "libnmeml.so";
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern byte* _alloc32B();
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
