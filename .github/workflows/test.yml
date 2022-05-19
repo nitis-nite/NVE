@@ -23,6 +23,14 @@ jobs:
       run: |
         cd nmeml/
         cmake .
+        make
+        ls
+        
+    - name: Artifact Pack 
+      uses: actions/upload-artifact@v2
+      with:
+        path: nmeml.*
+        
   WindowsRun:
     runs-on: windows-2019
     steps:
