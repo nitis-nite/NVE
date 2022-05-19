@@ -2,8 +2,14 @@ name: Build & Run Test
 
 on:
   push:
+    paths:
+      - '**.cpp'
+      - '**.cs'
+      - 'test.yml'
     branches:
     - "singleton"
+  
+  
     
   workflow_dispatch:
   
