@@ -5,7 +5,6 @@ using NiTiS.VE.Services.Runtime.MM;
 using System;
 using NiTiS.Collections.Pseudo;
 using System.Threading.Tasks;
-using static NiTiS.VE.Services.Runtime.MM.MemoryGentleman;
 using static NiTiS.VE.Services.Runtime.MM.NMem;
 
 namespace NiTiS.VE.Console;
@@ -14,19 +13,7 @@ public unsafe class Program
 {
 	public static void Main(string[] args)
 	{
-		MemoryBar bar = BarAllocate(1);
 		byte* ptr = _alloc32B();
-		*ptr = 0;
-		SC.WriteLine((ulong)ptr);
-		SC.WriteLine(*ptr);
-		_unlock32B(ptr);
-
-		SC.WriteLine((ulong)ptr);
-		SC.WriteLine(*ptr);
-		GC.GetTotalAllocatedBytes().PrintLine();
-		Fu();
-		GC.Collect();
-		GC.GetTotalAllocatedBytes().PrintLine();
 
 		//File file = new NiTiS.IO.File(@"B:\Desktop\package.nlib");
 		//Type type = new("NVE", "Abc");
@@ -39,14 +26,5 @@ public unsafe class Program
 
 		//Package package = Package.Load(file);
 		//SC.WriteLine(package);
-	}
-
-	private static void Fu()
-	{
-		foreach (int i in new RangeInt(0, 2048))
-		{
-			MemoryBar bar1 = BarAllocate(2048 * 1000);
-			BarDispose(bar1);
-		}
 	}
 }
