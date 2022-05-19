@@ -20,7 +20,7 @@ jobs:
         
     - name: Run
       run: |
-        dotnet run -c Release  
+        dotnet run NiTiS.Ve.Console/ -c Release  
   WindowsRun:
     runs-on: windows-2019
     steps:
@@ -33,4 +33,4 @@ jobs:
         
     - name: Run
       run: |
-        dotnet run -c Release
+        dotnet run NiTiS.Ve.Console/ -c Release
