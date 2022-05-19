@@ -1,0 +1,42 @@
+name: Build & Run Test
+
+on:
+  push:
+    paths:
+      - '**.cpp'
+      - '.github/workflows/cpp-build.yml'
+    branches:
+    - "singleton"
+    
+jobs:
+  LinuxBuild:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run
+      run: |
+        cd nmeml/
+        cmake .
+        make
+        ls
+    - name: Artifact Pack 
+      uses: actions/upload-artifact@v2
+      with:
+        path: libnmeml.so
+  LinuxBuild:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run
+      run: |
+        cd nmeml/
+        cmake .
+        make
+        ls
+        
+    - name: Artifact Pack 
+      uses: actions/upload-artifact@v2
+      with:
+        path: nmeml.dll
