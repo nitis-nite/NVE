@@ -1,0 +1,36 @@
+name: Build & Run Test
+
+on:
+  push:
+    branches:
+    - "singleton"
+    
+  workflow_dispatch:
+  
+jobs:
+  LinuxRun:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install DotNet v5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.x'
+        
+    - name: Run
+      run: |
+        dotnet run -c Release  
+  WindowsRun:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install DotNet v5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.x'
+        
+    - name: Run
+      run: |
+        dotnet run -c Release
