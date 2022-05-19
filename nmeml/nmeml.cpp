@@ -1,12 +1,20 @@
 ﻿#include "nmeml.h"
 
 extern "C" {
+	void _deleteArray(char* ptr, int size) {
+#ifdef ARR_DEL
+		delete[size] ptr;
+#else
+		delte[] ptr;
+#endif 
+
+	};
 	EXPORT char* _alloc32B() {
 		char* c = new char[32];
 		return c;
 	};
 	EXPORT void _unlock32B(char* ptr) {
-		delete[32] ptr;
+		_deleteArray(ptr, 32);
 	};
 
 
@@ -16,7 +24,7 @@ extern "C" {
 		return c;
 	};
 	EXPORT void _unlock128B(char* ptr) {
-		delete[128] ptr;
+		_deleteArray(ptr, 128);
 	};
 
 
@@ -26,7 +34,7 @@ extern "C" {
 		return c;
 	};
 	EXPORT void _unlock256B(char* ptr) {
-		delete[256] ptr;
+		_deleteArray(ptr, 256);
 	};
 
 
@@ -36,7 +44,7 @@ extern "C" {
 		return c;
 	};
 	EXPORT void _unlock512B(char* ptr) {
-		delete[512] ptr;
+		_deleteArray(ptr, 512);
 	};
 
 
@@ -46,6 +54,6 @@ extern "C" {
 		return c;
 	};
 	EXPORT void _unlock1KB(char* ptr) {
-		delete[1024] ptr;
+		_deleteArray(ptr, 1024);
 	};
 };

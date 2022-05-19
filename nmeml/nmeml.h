@@ -4,6 +4,7 @@
 //  Microsoft 
 #define EXPORT __declspec(dllexport)
 #define IMPORT __declspec(dllimport)
+#define ARR_DEL
 #elif defined(__GNUC__)
 //  GCC
 #define EXPORT __attribute__((visibility("default")))
