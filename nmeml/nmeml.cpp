@@ -5,7 +5,7 @@ extern "C" {
 #ifdef ARR_DEL
 		delete[size] ptr;
 #else
-		delte[] ptr;
+		delete[] ptr;
 #endif 
 
 	};
