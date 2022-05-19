@@ -19,6 +19,9 @@
 		<Content Include="*.dll" CopyToOutputDirectory="Always">
 			<IncludeInPackage>true</IncludeInPackage>
 		</Content>
+		<Content Include="*.lib" CopyToOutputDirectory="Always">
+			<IncludeInPackage>true</IncludeInPackage>
+		</Content>
 	</ItemGroup>
 	
 </Project>
