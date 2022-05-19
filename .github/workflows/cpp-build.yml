@@ -23,4 +23,4 @@ jobs:
     - name: Artifact Pack 
       uses: actions/upload-artifact@v2
       with:
-        path: libnmeml.so
+        path: '**/libnmeml.so'
