@@ -24,19 +24,3 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: libnmeml.so
-  WindowsBuild:
-    runs-on: windows-2019
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Run
-      run: |
-        cd nmeml/
-        cmake .
-        make
-        ls
-        
-    - name: Artifact Pack 
-      uses: actions/upload-artifact@v2
-      with:
-        path: nmeml.dll
