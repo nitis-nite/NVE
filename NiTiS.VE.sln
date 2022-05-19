@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CAC9F769-9903-4324-9DF3-3065A96F65F1}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		nmeml\CMakeLists.txt = nmeml\CMakeLists.txt
+		nmeml\nmeml.cpp = nmeml\nmeml.cpp
+		nmeml\nmeml.h = nmeml\nmeml.h
 	EndProjectSection
 EndProject
 Global
