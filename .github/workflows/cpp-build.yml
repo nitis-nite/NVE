@@ -24,7 +24,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: libnmeml.so
-  LinuxBuild:
+  WindowsBuild:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v2
