@@ -22,7 +22,7 @@ jobs:
     - name: Run
       run: |
         cd nmeml/
-        cmake .. 
+        cmake .
   WindowsRun:
     runs-on: windows-2019
     steps:
