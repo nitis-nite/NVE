@@ -2,7 +2,7 @@
 
 project ("nmeml" CXX)
 
-add_library (nmeml "nmeml.cpp" "nmeml.h")
+add_library (nmeml SHARED "nmeml.cpp" "nmeml.h")
 
 target_link_libraries (nmeml)
 
