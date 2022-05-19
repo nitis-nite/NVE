@@ -2,7 +2,7 @@
 
 project ("nmeml" CXX)
 
-add_library (nmeml SHARED "nmeml.cpp" "nmeml.h")
+add_library (nmeml "nmeml.cpp" "nmeml.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET nmeml PROPERTY CXX_STANDARD 20)
