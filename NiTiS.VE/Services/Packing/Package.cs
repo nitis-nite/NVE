@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace NiTiS.VE.Services.Packing;
 
-public class Package : IReferenceable<Package>
+public class Package : IPackable, IReferenceable<Package>
 {
 	private string name = System.String.Empty;
 	private Version version;
