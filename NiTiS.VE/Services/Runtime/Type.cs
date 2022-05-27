@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NiTiS.Collections.Generic;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace NiTiS.VE.Services.Runtime;
 
 [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
-public partial class Type : IEquatable<Type?>, IEquatable<Reference<Type>>, IReferenceable<Type>
+public class Type : IEquatable<Type?>, IEquatable<Reference<Type>>, IReferenceable<Type>
 {
 	private string name, space;
 	private string Name => name;
@@ -21,6 +22,8 @@ public partial class Type : IEquatable<Type?>, IEquatable<Reference<Type>>, IRef
 		Console.WriteLine("Reg new type {0} by id ({1})", FullName, Reference.ID);
 #endif
 	}
+	public void AddMethod(Method method)
+		=> methods.Add(method);
 	public override bool Equals(object? obj)
 	{
 		if (obj is Type type) { return Equals(type); }

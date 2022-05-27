@@ -10,6 +10,31 @@ public static unsafe class NMem
 	public static class Win
 	{
 		public const string NiTiSMemoryLibName = "nmeml.dll";
+
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc(int size);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc1B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock1B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc2B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock2B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc4B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock4B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc8B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock8B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc16B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock16B(byte* ptr);
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern byte* _alloc32B();
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
@@ -35,6 +60,30 @@ public static unsafe class NMem
 	{
 		public const string NiTiSMemoryLibName = "libnmeml.so";
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc(int size);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc1B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock1B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc2B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock2B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc4B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock4B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc8B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock8B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern byte* _alloc16B();
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern void _unlock16B(byte* ptr);
+		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern byte* _alloc32B();
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern void _unlock32B(byte* ptr);
@@ -55,6 +104,31 @@ public static unsafe class NMem
 		[DllImport(NiTiSMemoryLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern void _unlock1KB(byte* ptr);
 	}
+
+	public static byte* _alloc(int size)
+		=> useWin ? Win._alloc(size) : Linux._alloc(size);
+	public static void _unlock(byte* ptr)
+	{ if (useWin) Win._unlock(ptr); else Linux._unlock(ptr); }
+	public static byte* _alloc1B()
+		=> useWin ? Win._alloc1B() : Linux._alloc1B();
+	public static void _unlock1B(byte* ptr)
+	{ if (useWin) Win._unlock1B(ptr); else Linux._unlock1B(ptr); }
+	public static byte* _alloc2B()
+		=> useWin ? Win._alloc2B() : Linux._alloc2B();
+	public static void _unlock2B(byte* ptr)
+	{ if (useWin) Win._unlock2B(ptr); else Linux._unlock2B(ptr); }
+	public static byte* _alloc4B()
+		=> useWin ? Win._alloc4B() : Linux._alloc4B();
+	public static void _unlock4B(byte* ptr)
+	{ if (useWin) Win._unlock4B(ptr); else Linux._unlock4B(ptr); }
+	public static byte* _alloc8B()
+		=> useWin ? Win._alloc8B() : Linux._alloc8B();
+	public static void _unlock8B(byte* ptr)
+	{ if (useWin) Win._unlock8B(ptr); else Linux._unlock8B(ptr); }
+	public static byte* _alloc16B()
+		=> useWin ? Win._alloc16B() : Linux._alloc16B();
+	public static void _unlock16B(byte* ptr)
+	{ if (useWin) Win._unlock16B(ptr); else Linux._unlock16B(ptr); }
 	public static byte* _alloc32B()
 		=> useWin ? Win._alloc32B() : Linux._alloc32B();
 	public static void _unlock32B(byte* ptr)

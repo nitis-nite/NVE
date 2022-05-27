@@ -13,18 +13,6 @@ public unsafe class Program
 {
 	public static void Main(string[] args)
 	{
-		byte* ptr = _alloc32B();
 
-		//File file = new NiTiS.IO.File(@"B:\Desktop\package.nlib");
-		//Type type = new("NVE", "Abc");
-		//file.Delete();
-		//file.Create();
-
-		//Package.Builder pckBuilder = new Package.Builder("NVE");
-		//pckBuilder.WithVersion(new (0, 0, 0, 1));
-		//pckBuilder.Write(file);
-
-		//Package package = Package.Load(file);
-		//SC.WriteLine(package);
 	}
 }
