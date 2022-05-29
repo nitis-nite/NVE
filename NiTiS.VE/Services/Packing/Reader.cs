@@ -11,17 +11,20 @@ public class Reader
 	public Reader(byte[] stream)
 		=> this.value = stream;
 	public string String()
-		=> String(Byte());
-	public string String(int lenght)
 	{
-		char[] text = new char[lenght];
-
-		for (int i = 0; i < lenght; i++)
+		TextSize size = (TextSize)Byte();
+		int length = size switch
 		{
-			text[i] = (char)Byte();
+			TextSize.BIG => Int32(),
+			TextSize.M256 => Byte(),
+			_ => throw new System.IO.InvalidDataException()
+		};
+		char[] characters = new char[length];
+		for (int i = 0; i < length; i++)
+		{
+			characters[i] = (char)Byte();
 		}
-
-		return new(text);
+		return new(characters);
 	}
 	public byte Byte()
 	{

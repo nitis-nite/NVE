@@ -5,11 +5,5 @@ using System.Text;
 namespace NiTiS.VE.Services.Runtime;
 public class Type
 {
-	public class Builder
-	{
-		public Builder()
-		{
 
-		}
-	}
 }

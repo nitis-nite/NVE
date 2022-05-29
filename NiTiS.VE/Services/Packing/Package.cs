@@ -5,18 +5,13 @@ using System.Linq;
 
 namespace NiTiS.VE.Services.Packing;
 
-public class Package : IPackable, IReferenceable<Package>
+public class Package : IPackable
 {
 	private string name = System.String.Empty;
 	private Version version;
 	private Type[] types;
-	private Reference<Package> reference;
-	public Reference<Package> Reference => reference;
 #pragma warning disable CS8618
-	private Package()
-	{
-		this.reference = new Reference<Package>(this);
-	}
+	private Package() { }
 #pragma warning restore CS8618
 	public byte[] GetBytes()
 	{
@@ -51,7 +46,7 @@ public class Package : IPackable, IReferenceable<Package>
 		h1 = reader.Byte();
 		h2 = reader.Byte();
 
-		if (h1 != 73 && h2 != 46) throw new System.Exception("Invalid format");
+		if (h1 != 73 && h2 != 46) throw new System.BadImageFormatException("Invalid format");
 		
 		Package package = new Package();
 
@@ -60,44 +55,5 @@ public class Package : IPackable, IReferenceable<Package>
 		package.version = reader.Version();
 
 		return package;
-	}
-	public class Builder : IReferenceable<Package>
-	{
-		private Package package;
-		private Sequence<Type> types = new(4);
-		public Builder(string packageName)
-		{
-			this.package = new();
-			this.package.name = packageName;
-		}
-
-		public Reference<Package> Reference
-			=> this.package.reference;
-
-		public Builder WithVersion(Version version)
-		{
-			this.package.version = version;
-			return this;
-		}
-		public Builder WithType(Type type)
-		{
-			this.types.Add(type);
-			return this;
-		}
-		public Package Build()
-		{
-			this.package.types = types.ToArray();
-			return this.package;
-		}
-		public void Write(System.IO.FileStream stream)
-		{
-			byte[] buffer = this.package.GetBytes();
-			stream.Write(buffer, 0, buffer.Length);
-		}
-		public void Write(File file)
-		{
-			byte[] buffer = this.package.GetBytes();
-			file.WriteBytesAsync(buffer).Wait();
-		}
 	}
 }
