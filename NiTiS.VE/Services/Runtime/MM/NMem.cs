@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 namespace NiTiS.VE.Services.Runtime.MM;
+/// <summary>
+/// Wrapper for nmeml library
+/// </summary>
 public static unsafe class NMem
 {
 	private static bool useWin;

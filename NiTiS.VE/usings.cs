@@ -13,7 +13,6 @@ global using NiTiS.IO;
 global using SFile = System.IO.File;
 global using SDir = System.IO.Directory;
 
-global using PackageBuilder = NiTiS.VE.Services.Packing.Package.Builder;
 global using BitConv = System.BitConverter;
 global using static System.Text.Encoding;
 global using static NiTiS.VE.Services.Runtime.MM.NMem;
