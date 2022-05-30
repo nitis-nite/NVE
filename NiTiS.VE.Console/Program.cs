@@ -10,15 +10,26 @@ public unsafe class Program
 {
 	public static void Main(string[] args)
 	{
-		Name typeName = new("NVE", "Void");
-		Type.Builder builder = new(typeName);
-		Type @void = builder.Build();
+		Name typeNameVoid = new("NVE", "Void");
+		Name typeNameObject = new("NVE", "Object");
+
+		Type.Builder builderVoid = Type.ValueClass(typeNameVoid);
+		Type.Builder builderObject = Type.Class(typeNameObject);
+
+		Type @void = builderVoid.Build();
+		Type @object = builderObject.Build();
+
 		Instance @null = new(null);
+		Instance obj = new(@object);
 
 		@null.Initialize();
+		obj.Initialize();
 
-		@null.Invoke();
+		SC.WriteLine(@null.Size());
+		SC.WriteLine(obj.Size());
 
-		SC.WriteLine(@void);
+		obj.Dispose();
+
+		SC.WriteLine(obj.Size());
 	}
 }

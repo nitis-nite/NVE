@@ -10,6 +10,7 @@ namespace NiTiS.VE.Services.Runtime;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe class Instance
 {
+	public static readonly Instance Null = new(null);
 	public static readonly uint PointerSize = (uint)sizeof(IntPtr);
 	private Type? type;
 	private InstanceMarks marks;
@@ -27,7 +28,7 @@ public unsafe class Instance
 		if (type is null) return 0;
 		else
 		{
-			uint size = 0;
+			uint size = 4;
 			
 			return size;
 		}
@@ -47,5 +48,18 @@ public unsafe class Instance
 			}
 		}
 		marks |= InstanceMarks.Initialized;
+	}
+	/// <summary>
+	/// Delete and unsign object
+	/// </summary>
+	public void Dispose()
+	{
+		if (ptr != (byte*)IntPtr.Zero)
+		{
+			_unlock(ptr);
+		}
+		ptr = (byte*)IntPtr.Zero;
+		marks = InstanceMarks.None;
+		type = null;
 	}
 }

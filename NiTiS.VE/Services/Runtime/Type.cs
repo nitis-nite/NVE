@@ -11,6 +11,15 @@ public class Type
 
 	public override string ToString() 
 		=> Name.ToString();
+
+	public static Builder Class(Name name, bool @abstract = false, bool @static = false)
+			=> new Builder(name).AddMark(@abstract ? TypeMarks.Abstract : TypeMarks.None).AddMark(@static ? TypeMarks.Static : TypeMarks.None);
+	public static Builder ValueClass(Name name)
+		=> new Builder(name).ValueType();
+	public static Builder Interface(Name name)
+		=> new Builder(name).AddMark(TypeMarks.Interface);
+	public static Builder Array(Type type)
+		=> new Builder(type.Name).AddMark(type.Marks | TypeMarks.ArrayType);
 	public class Builder
 	{
 		private Name name;

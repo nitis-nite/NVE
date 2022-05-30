@@ -5,17 +5,16 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace NiTiS.VE.Services.Runtime;
-
-[Flags]
-public enum TypeMarks : ushort
+public class RuntimeSpace
 {
-	None = 0,
-	Abstract = 1,
-	Static = 2,
-	ValueType = 4,
-	Interface = 8,
-	ArrayType = 16,
-	Generic = 32,
-	BasicType = 64,
-	Sealed = 128,
+	public RuntimeSpace()
+	{
+
+	}
+	public Runner AllocRunner()
+		=> throw new NotImplementedException();
+	public class Runner
+	{
+
+	}
 }
