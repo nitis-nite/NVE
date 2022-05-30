@@ -32,7 +32,7 @@ public unsafe class Instance
 			return size;
 		}
 	}
-	public void InitializeFields()
+	public void Initialize()
 	{
 		if (IsInitialized) throw new RuntimeException("Instance allready initialized");
 		int size = (int)Size();

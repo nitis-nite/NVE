@@ -18,4 +18,6 @@ public struct Name : IPackable
 		writer.TextM256(name);
 		return writer.GetBytes();
 	}
+	public override string ToString() 
+		=> space + "." + name;
 }
