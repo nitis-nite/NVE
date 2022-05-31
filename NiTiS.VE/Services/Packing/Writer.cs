@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 namespace NiTiS.VE.Services.Packing;
-public unsafe class Writer : IPackable
+public unsafe class Writer
 {
 	private readonly Sequence<byte> bytes;
 	public Writer() : this(2048) { }

@@ -24,7 +24,7 @@ public class Package : IReferencable<Package>
 	}
 	public class Builder
 	{
-		public readonly Reference<Package> Reference;
+		public Reference<Package> Reference { get; }
 		private readonly string name;
 		private readonly Version version;
 		private readonly Sequence<Type> types;
@@ -34,6 +34,11 @@ public class Package : IReferencable<Package>
 			this.name = name;
 			this.version = version;
 			Reference = new();
+		}
+		public Builder AppendType(Type type)
+		{
+			types.Add(type);
+			return this;
 		}
 		public Package Build()
 			=> new(Reference, name, version, types.ToArray());

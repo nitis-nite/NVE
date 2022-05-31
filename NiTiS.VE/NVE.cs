@@ -9,6 +9,7 @@ public class NVE
 {
 	private readonly string runnerName;
 	private readonly Sequence<Package> packages;
+	private readonly NiTiS.VE.Services.Version version = new(0, 0, 0, 2);
 	public NVE(string runnerName)
 	{
 		this.runnerName = runnerName;
@@ -16,8 +17,10 @@ public class NVE
 	}
 	public void LoadPackage(Package pack)
 	{
-
+		this.packages.Add(pack);
 	}
+	public void LoadPackage(byte[] rawData)
+		=> throw new NotImplementedException();
 	public void Execute()
 	{
 

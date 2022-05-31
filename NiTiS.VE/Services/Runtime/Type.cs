@@ -11,5 +11,10 @@ namespace NiTiS.VE.Services.Runtime;
 [StructLayout(LayoutKind.Sequential)]
 public class Type : IReferencable<Type>
 {
-	public Reference<Type> Reference => new();
+	public Reference<Type> Reference { get; }
+	public Reference<Package> Package { get; }
+	public class Builder
+	{
+
+	}
 }

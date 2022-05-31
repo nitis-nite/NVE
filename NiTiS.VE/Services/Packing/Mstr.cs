@@ -17,6 +17,14 @@ public unsafe readonly struct Mstr
 		this.firstChar = ptr;
 		this.size = size;
 	}
+	public Mstr(string text)
+	{
+		fixed (char* ptr = text)
+		{
+			this.firstChar = ptr;
+			this.size = (uint)text.Length;
+		}
+	}
 	public override string ToString()
 		=> new(firstChar, 0, (int)size);
 }
