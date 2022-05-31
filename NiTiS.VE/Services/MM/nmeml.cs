@@ -1,13 +1,15 @@
-﻿using System;
+﻿// The NiTiS-Dev licenses this file to you under the MIT license.
+
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace NiTiS.VE.Services.Runtime.MM;
+namespace NiTiS.VE.Services.MM;
 /// <summary>
 /// Wrapper for nmeml library
 /// </summary>
-public static unsafe class NMem
+public static unsafe class nmeml
 {
 	private static bool useWin;
 	public static class Win
@@ -153,8 +155,8 @@ public static unsafe class NMem
 	public static void _unlock1KB(byte* ptr)
 	{ if (useWin) Win._unlock1KB(ptr); else Linux._unlock1KB(ptr); }
 
-	static NMem()
+	static nmeml()
 	{
-		NMem.useWin = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+		nmeml.useWin = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 	}
 }

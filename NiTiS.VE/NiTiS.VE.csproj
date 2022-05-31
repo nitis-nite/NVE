@@ -12,7 +12,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="NiTiSCore" Version="2.0.9.7" />
+	  <PackageReference Include="NiTiSCore" Version="2.*" />
+	  <PackageReference Include="NiTiS.Collections" Version="1.2.3.*" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -22,6 +23,10 @@
 		<Content Include="*.so" CopyToOutputDirectory="Always">
 			<IncludeInPackage>true</IncludeInPackage>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\Runtime\" />
 	</ItemGroup>
 	
 </Project>
