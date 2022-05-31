@@ -24,9 +24,5 @@
 			<IncludeInPackage>true</IncludeInPackage>
 		</Content>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Services\Runtime\" />
-	</ItemGroup>
 	
 </Project>
