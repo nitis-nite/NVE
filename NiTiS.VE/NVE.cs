@@ -1,6 +1,6 @@
 ﻿// The NiTiS-Dev licenses this file to you under the MIT license.
 
-using System;
+using NiTiS.VE.Services.Runtime;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,9 +20,19 @@ public class NVE
 		this.packages.Add(pack);
 	}
 	public void LoadPackage(byte[] rawData)
-		=> throw new NotImplementedException();
+		=> throw new System.NotImplementedException();
 	public void Execute()
 	{
 
 	}
+	public Type? GetType(string packageName, string typeName)
+		=> packages.Where(pack => pack.name == packageName).SelectMany(pack => pack.types).Where(type => type.name == typeName).FirstOrDefault();
+	public Type? GetType(string typeName)
+		=> packages.SelectMany(pack => pack.types).Where(type => type.name == typeName).FirstOrDefault();
+	public Type? GetType(Reference<Package> packageRef, string typeName)
+		=> packages.Where(pack => pack == packageRef).SelectMany(pack => pack.types).Where(type => type.name == typeName).FirstOrDefault();
+	public Type? GetType(Reference<Package> packageRef, Reference<Type> typeRef)
+		=> packages.Where(pack => pack == packageRef).SelectMany(pack => pack.types).Where(type => type == typeRef).FirstOrDefault();
+	public IEnumerable<Package> GetPackages()
+		=> packages;
 }
