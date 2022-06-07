@@ -8,7 +8,7 @@ using System.Text;
 namespace NiTiS.VE.Services.Runtime;
 
 [StructLayout(LayoutKind.Sequential)]
-public class Pack
+public unsafe struct Pack
 {
 	/// <summary>
 	/// Load id
@@ -17,10 +17,26 @@ public class Pack
 	/// <summary>
 	/// Path to package
 	/// </summary>
-	internal Mstr filePath;
-	public readonly Mstr name;
-	internal Pack(string name)
+	internal Strlnk filePath;
+	public readonly Strlnk name;
+	public unsafe Pack(string name) : this(new Strlnk(name)) { }
+	public unsafe Pack(Strlnk name)
 	{
-		this.name = new(name);
+		this.name = name;
+		this.filePath = Strlnk.Empty;
+		lid = 0;
+	}
+}
+[StructLayout(LayoutKind.Sequential)]
+public readonly unsafe struct Packptr
+{
+	public readonly Pack* package;
+	public Packptr(Pack pack)
+	{
+		package = &pack;
+	}
+	public Packptr(Pack* packptr)
+	{
+		package = packptr;
 	}
 }
