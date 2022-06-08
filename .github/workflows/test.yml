@@ -14,8 +14,11 @@ on:
   workflow_dispatch:
   
 jobs:
-  LinuxRun:
-    runs-on: ubuntu-18.04
+  Run:
+    strategy:
+      matrix:
+        run-on: ["windows-2019", "ubuntu-18.04"]
+    runs-on: ${{ matrix.run-on }}
     steps:
     - uses: actions/checkout@v2
     
@@ -28,18 +31,3 @@ jobs:
       run: |
         cd NiTiS.VE.Console/
         dotnet run -c Release
-      
-  WindowsRun:
-    runs-on: windows-2019
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Install DotNet v6
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.x'
-        
-    - name: Run
-      run: |
-        cd NiTiS.VE.Console/
-        dotnet run -c Release  
