@@ -1,4 +1,6 @@
 ﻿using NiTiS.Collections.Generic;
+using NiTiS.Reflection;
+using NiTiS.VE.Core;
 using NiTiS.VE.Services;
 using NiTiS.VE.Services.Build;
 using NiTiS.VE.Services.Runtime;
@@ -16,6 +18,7 @@ public unsafe class Program
 	public static void Main(string[] args)
 	{
 		NVE nve = new(System.Environment.UserName);
-		nve.GetTypeByLID(LID32.Zero);
+		Type type = nve.GetTypeByLID(LID32.Zero);
+		type.PrintLine();
 	}
 }

@@ -16,8 +16,10 @@ public readonly struct LID32
 	{
 		this.id = id;
 	}
-	public bool IsPointless
+	public bool Pointless
 		=> id == 0;
+	public override string ToString()
+		=> id == 0 ? "None" : id.ToString();
 }
 [StructLayout(LayoutKind.Sequential)]
 public readonly struct LID64
@@ -30,4 +32,6 @@ public readonly struct LID64
 	}
 	public bool IsPointless
 		=> id == 0;
+	public override string ToString()
+		=> id == 0 ? "None" : id.ToString();
 }

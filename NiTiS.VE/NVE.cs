@@ -15,5 +15,5 @@ public unsafe class NVE
 	public void LoadPackage(byte[] rawData)
 		=> throw new System.NotImplementedException();
 	public Type? GetTypeByLID(lid id)
-		=> id.IsPointless ? Type.E_RZ : null;
+		=> id.Pointless ? Type.Void : null;
 }
