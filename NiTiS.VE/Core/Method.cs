@@ -9,13 +9,15 @@ public abstract class Method
 {
 	public readonly Type ReturnType;
 	public readonly Type[] ArgumentType;
+	internal lid lid;
+	public lid LID => lid;
 	public Method(Type returnType, params Type[] argumentType)
 	{
 		this.ReturnType = returnType;
 		this.ArgumentType = argumentType;
 	}
 	public virtual bool IsExternal { get; }
-	public abstract RuntimeInstance Run(RuntimeInstance instance, params RuntimeInstance[] arguments);
+	public abstract RuntimeInstance Run(NVE nve, RuntimeInstance instance, params RuntimeInstance[] arguments);
 	static Method()
 	{
 	}

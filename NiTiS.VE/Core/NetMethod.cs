@@ -13,6 +13,6 @@ public class NetMethod : Method
 		this.method = method;
 	}
 	public override bool IsExternal => true;
-	public override RuntimeInstance Run(RuntimeInstance instance, params RuntimeInstance[] arguments)
+	public override RuntimeInstance Run(NVE nve, RuntimeInstance instance, params RuntimeInstance[] arguments)
 		=> method(instance, arguments);
 }

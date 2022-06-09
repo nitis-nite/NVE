@@ -21,8 +21,8 @@ public unsafe class Program
 		Type type = Type.Byte;
 		Method @new = type["new", null, Type.EmptyTypes].Method;
 
-		@new.Run(RuntimeInstance.Null);
-
+		RuntimeInstance @byte =  @new.Run(RuntimeInstance.Null);
+		@byte.GetType().PrintLine();
 		type.PrintLine();
 	}
 }

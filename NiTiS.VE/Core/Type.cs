@@ -21,7 +21,11 @@ public class Type
 		{
 			return Byte!.Initialize();
 		}, Byte))
-	});
+	})
+	{
+		plid = lid.Zero,
+		lid = new(1),
+	};
 	public readonly Type[] dependents;
 	public readonly Field[] fields;
 	public readonly Specification specification;

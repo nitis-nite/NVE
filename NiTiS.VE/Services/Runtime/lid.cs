@@ -18,6 +18,10 @@ public readonly struct LID32
 	}
 	public bool Pointless
 		=> id == 0;
+	public Int32 ToInt32()
+		=> (int)id;
+	public UInt32 ToUInt32()
+		=> id;
 	public override string ToString()
 		=> id == 0 ? "None" : id.ToString();
 }
@@ -32,6 +36,10 @@ public readonly struct LID64
 	}
 	public bool IsPointless
 		=> id == 0;
+	public Int64 ToInt64()
+		=> (int)id;
+	public UInt64 ToUInt64()
+		=> id;
 	public override string ToString()
 		=> id == 0 ? "None" : id.ToString();
 }

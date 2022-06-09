@@ -15,5 +15,19 @@ public unsafe class NVE
 	public void LoadPackage(byte[] rawData)
 		=> throw new System.NotImplementedException();
 	public Type? GetTypeByLID(lid id)
-		=> id.Pointless ? Type.Void : null;
+	{
+		int intid = id.ToInt32();
+		if (intid > 128) //Reserve 128 types + Void for NVE
+		{
+			return null;
+		}else
+		{
+			return intid switch
+			{
+				0 => Type.Void,
+				1 => Type.Byte,
+				_ => null
+			};
+		}
+	}
 }

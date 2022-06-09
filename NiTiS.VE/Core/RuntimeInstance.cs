@@ -2,10 +2,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace NiTiS.VE.Core;
-public struct RuntimeInstance
+
+[DebuggerDisplay($"{{{nameof(ToString)}(),nq}}")]
+public unsafe struct RuntimeInstance
 {
 	private readonly Type type;
 	private nint ptr;
@@ -17,6 +20,8 @@ public struct RuntimeInstance
 	/// </summary>
 	private readonly byte refLevel;
 	public static readonly RuntimeInstance Null;
+	public new Type GetType()
+		=> type;
 	internal RuntimeInstance(Type specificType, byte refLevel, nint reference)
 	{
 		// Setup type
@@ -31,14 +36,13 @@ public struct RuntimeInstance
 			type = specificType;
 		}
 		this.refLevel = refLevel;
+		this.ptr = reference;
 		//Alloc memory
 		if (refLevel == 0) //Not pointer 
 		{
-			ptr = reference;
 			this.mem = new byte[type.Stride()];
 		} else
 		{
-			ptr = reference;
 			this.mem = Array.Empty<byte>();
 		}
 	}
@@ -46,7 +50,8 @@ public struct RuntimeInstance
 		=> IsNullable() && ptr == 0;
 	public bool IsNullable()
 		=> refLevel > 0;
-
+	public override string ToString()
+		=> $"{type.Name} sizeof[{mem.Length + sizeof(nint)}] pointer[{refLevel > 0}]";
 	static RuntimeInstance()
 	{
 		Null = new(Type.Void, 1, 0);
