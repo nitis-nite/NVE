@@ -16,6 +16,7 @@ public struct RuntimeInstance
 	/// 2 -> ref ref Type (Type**) <br/>
 	/// </summary>
 	private readonly byte refLevel;
+	public static readonly RuntimeInstance Null;
 	internal RuntimeInstance(Type specificType, byte refLevel, nint reference)
 	{
 		// Setup type
@@ -45,4 +46,9 @@ public struct RuntimeInstance
 		=> IsNullable() && ptr == 0;
 	public bool IsNullable()
 		=> refLevel > 0;
+
+	static RuntimeInstance()
+	{
+		Null = new(Type.Void, 1, 0);
+	}
 }

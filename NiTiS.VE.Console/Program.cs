@@ -18,7 +18,11 @@ public unsafe class Program
 	public static void Main(string[] args)
 	{
 		NVE nve = new(System.Environment.UserName);
-		Type type = nve.GetTypeByLID(LID32.Zero);
+		Type type = Type.Byte;
+		Method @new = type["new", null, Type.EmptyTypes].Method;
+
+		@new.Run(RuntimeInstance.Null);
+
 		type.PrintLine();
 	}
 }
