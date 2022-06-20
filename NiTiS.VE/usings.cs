@@ -12,13 +12,23 @@ global using SDir = System.IO.Directory;
 global using BitConv = System.BitConverter;
 global using static System.Text.Encoding;
 global using static UnsafeMthds;
+global using static Extensions;
 
 global using lid = NiTiS.VE.Services.Runtime.LID32;
 global using lidlong = NiTiS.VE.Services.Runtime.LID64;
 using System.Runtime.InteropServices;
+using NiTiS.VE.Services.Runtime;
+using System;
 
 public static class Extensions
 {
+	public static void Exit(ExitCodes code)
+	{
+#if DEBUG
+		Console.WriteLine("Exit with code: {0} ({1})", ((int)code).ToString("X"), code);
+#endif
+		System.Environment.Exit((int)code);
+	}
 }
 public static unsafe class UnsafeMthds
 {
@@ -36,4 +46,12 @@ public static unsafe class UnsafeMthds
 		T* ptr = &item;
 		return ptr;
 	}
+	public static int __sign(uint num)
+		=> *((int*)&(num));
+	public static uint __unsign(int num)
+		=> *((uint*)&(num));
+	public static long __sign(ulong num)
+		=> *((long*)&(num));
+	public static ulong __unsign(long num)
+		=> *((ulong*)&(num));
 }

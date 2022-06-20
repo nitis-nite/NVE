@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NiTiS.VE.Core.Exec;
-public class RuntimeException : Exception
-{
-	public RuntimeException(string message) : base(message)
-	{
+namespace NiTiS.VE.Core;
 
-	}
+[Flags]
+public enum TypeP : ushort
+{
+	None = 0,
+	Static = 1,
+
 }
