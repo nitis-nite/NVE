@@ -14,6 +14,7 @@ global using static System.Text.Encoding;
 global using static UnsafeMthds;
 global using static Extensions;
 
+global using Version64 = NiTiS.VE.Services.Version;
 global using lid = NiTiS.VE.Services.Runtime.LID32;
 global using lidlong = NiTiS.VE.Services.Runtime.LID64;
 using System.Runtime.InteropServices;

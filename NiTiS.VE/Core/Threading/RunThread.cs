@@ -4,12 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NiTiS.VE.Core;
-
-[Flags]
-public enum TypeP : ushort
+namespace NiTiS.VE.Core.Threading;
+public class RunThread
 {
-	None = 0,
-	Static = 1,
-
 }

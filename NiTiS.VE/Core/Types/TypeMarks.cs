@@ -2,13 +2,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Text;
 
-namespace NiTiS.VE.Raw;
+namespace NiTiS.VE.Core.Types;
 
-[StructLayout(LayoutKind.Sequential)]
-public struct RawType
+[Flags]
+public enum TypeMarks : ushort
 {
-	public string Name;
+	none = 0,
+	generic = 1,
+	hidefromuser = 2,
+	lazystaticctor = 4,
 }

@@ -1,6 +1,7 @@
 ﻿using NiTiS.Collections.Generic;
 using NiTiS.Reflection;
 using NiTiS.VE.Core;
+using NiTiS.VE.Core.Emit;
 using NiTiS.VE.Core.Meth;
 using NiTiS.VE.Services;
 using NiTiS.VE.Services.Build;
@@ -18,16 +19,20 @@ public unsafe class Program
 {
 	public static void Main(string[] args)
 	{
-		MethodScope scope = new(32);
+		PackageBuilder package = new(PackageBuildStatus.Compile)
+		{
+			Name = "nvecorelib",
+			DisplayName = "NVE.Core"
+		};
 
+		TypeBuilder voidType = package.DefineTypeBuilder();
+		voidType.Name = "NVE.Void";
 
+		TypeBuilder none = package.DefineTypeBuilder();
+		none.Name = "NVE.None";
 
-		Inst ret = scope.Run(NVE.Void,
-			new VEECl(VEEC.InitVoid, LID32.Zero),
-			new VEECl(VEEC.Load, LID32.Zero),
-			new VEECl(VEEC.Return, LID32.Zero)
-		);
-		WriteLine(ret);
+		MethodBuilder method = none.DefineMethodBuilder();
+		method.ReturnType(voidType);
 	}
 	private static void WriteLine<T>(T obj)
 	{
